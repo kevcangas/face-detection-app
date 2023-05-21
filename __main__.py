@@ -21,7 +21,7 @@ def start_application():
 	app.include_router(webpage)
 
 	#Directory where the static files can be request
-	app.mount("/static", app=StaticFiles(directory="static"), name="static") 
+	app.mount("/static", app=StaticFiles(directory="webpage/static"), name="static") 
 	return app
 
 
@@ -29,7 +29,7 @@ app = start_application()
 
 
 def run():
-	config = uvicorn.Config("main:app", port=8000, host="0.0.0.0", log_level="info")
+	config = uvicorn.Config("__main__:app", port=8000, host="0.0.0.0", log_level="info", reload='True')
 	server = uvicorn.Server(config)
 	server.run()
 

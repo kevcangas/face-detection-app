@@ -1,7 +1,6 @@
-import numpy as np
+#Extarnal libraries
 import cv2
-
-#Schemas
+import numpy as np
 
 
 #Models

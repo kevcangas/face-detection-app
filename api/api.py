@@ -1,6 +1,7 @@
 #Extarnal libraries
 import cv2
 import numpy as np
+import base64
 
 
 #Models
@@ -28,4 +29,13 @@ def upload_file(file: UploadFile = File(...)):
     #Detecting faces in the image
     img_faces = Detector().detect_faces(decode_img)
 
-    return {"message": f"Successfully uploaded {file.filename}"}
+    #Coding image
+    byte_img = base64.b64encode(img_faces)
+
+
+    return {
+        "detail": {
+            "filename": file.filename,
+            "image": byte_img
+            }
+    }

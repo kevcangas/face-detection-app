@@ -28,6 +28,9 @@ def upload_file(file: UploadFile = File(...)):
 
     #Detecting faces in the image
     img_faces = Detector().detect_faces(decode_img)
+    img_faces = cv2.resize(decode_img,[400,300])
+    img_faces = cv2.imencode('.png',img_faces)[1]
+    
 
     #Coding image
     byte_img = base64.b64encode(img_faces)

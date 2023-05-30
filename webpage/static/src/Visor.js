@@ -1,18 +1,28 @@
-import React, { useRef } from 'react'
+import React, { Component, useRef } from 'react'
 
-import './Viso.css';
+import './Visor.css';
 
-function Visor({ image }) {
+class Visor extends Component {
     
-    const canvasRef = useRef(null);
-    const canvas = canvasRef.current;
-    const context = canvas.getContext('2d');
+    componentDidMount() {
+        
+        //console.log(this.props.image)
+        if (this.props.image != null){
+            const img_to_show = document.querySelector('img')
+            
+            var img_d
+            img_d = 'data:image/png;base64,' + this.props.image
+            
+            img_to_show.src=img_d
+           
+        }
+    }
     
-    context.drawImage(image,0,0);
-
-    return(
-        <canvas ref={canvasRef}/>
-    )
+    render() {
+        return(
+            <img src=""/>
+        )
+    }
 }
 
 export { Visor };

@@ -16,9 +16,10 @@ from fastapi import Path, Body, File
 api = APIRouter()
 ver = '/v1'
 
-
+#Receives an image to search faces on it 
 @api.post("/imagefaces/")
 def upload_file(file: UploadFile = File(...)):
+    
     #Read file content
     contents = file.file.read()
     
@@ -35,7 +36,7 @@ def upload_file(file: UploadFile = File(...)):
     #Coding image
     byte_img = base64.b64encode(img_faces)
 
-
+    #Returns a JSON with the image in base 64
     return {
         "detail": {
             "filename": file.filename,

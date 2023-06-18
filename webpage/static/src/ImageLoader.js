@@ -32,12 +32,9 @@ class ImageLoader extends Component {
 		formData.append(
 			"file",
             this.state.selectedFile
-			//this.state.selectedFile
-			
 		);
         
-        //console.log(this.state.selectedFile);
-		// Details of the uploaded file
+        // Details of the uploaded file
 		console.log(this.state.selectedFile);
 
 		// Request made to the backend api
@@ -58,23 +55,12 @@ class ImageLoader extends Component {
 
 			return (
 				<div>
-					<h2>File Details:</h2>
 					<p>File Name: {this.state.selectedFile.name}</p>
-
-					<p>File Type: {this.state.selectedFile.type}</p>
-
-					<p>
-						Last Modified:{" "}
-						{this.state.selectedFile.lastModifiedDate.toDateString()}
-					</p>
-
-
 				</div>
 			);
 		} else {
 			return (
 				<div>
-					<br />
 					<h4>Choose before Pressing the Upload button</h4>
 				</div>
 			);
@@ -91,22 +77,26 @@ class ImageLoader extends Component {
             visor = <h1>No image uploaded!</h1>
         }
 		return (
-			<div>
-				<h1>
-					GeeksforGeeks
-				</h1>
-				<h3>
-					File Upload using React!
-				</h3>
-				<div>
-					<input type="file" onChange={this.onFileChange} />
-					<button onClick={this.onFileUpload}>
-						Upload!
-					</button>
+			<div className='container'>
+				<div className='info'>					
+					<h1>
+						Face Detection App
+					</h1>
+					<h3>
+						Upload an image to get the faces on it.
+					</h3>
+					<div>
+						<input type="file" onChange={this.onFileChange} />
+						<button onClick={this.onFileUpload}>
+							Upload!
+						</button>
+					</div>
+					{this.fileData()}
+                </div>
+
+				<div className='image-container'>
+					{visor}
 				</div>
-				{this.fileData()}
-                {visor}
-                
                 
 			</div>
 		);

@@ -1,17 +1,23 @@
 # Face Detection App
 
-By KevCangas
+### Description
 
-Version: 0.0.1
+This app can detect faces from a images sent by a webpage.
 
-Description: 
-This app can detect faces from images or video.
+### Process
 
-Instructions to install the created package:
+The process consist in:
+1. Load the image in a form from a webpage. To do this is necessary use node.js to load the App contained in __/webpage/static/src/__, then, in the webpage deployed, you can upload and image. 
+2. The app sends the image to an API that analyze the image implementing a Haarcascade filter to detect faces. This can be implemented thanks [OpenCV](https://opencv.org).
+3. The image with the faces detected is sent to the webpage in Base64.
+4. Then, the image is showed in the webpage.
 
-Before all, you need to create the requirements.txt, this doc contains the
-dependencies that your package will need. To do this you need to type in the
-terminal "pip freeze > requirements.txt".
+### Endpoint
 
-To install the package is necesary pre-install setuptools in your environment
-when you did the last, type: "pip install -e <directory-of-your-package>" to finish the installation
+The enpoint __/imagefaces/__ is the responsable of process the image. The code of this can be seen in [api.py](api/api.py).
+
+### Webpage
+
+The webpage is seen in the next image.
+
+![](image.png)

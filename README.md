@@ -4,6 +4,11 @@
 
 This app can detect faces from a images sent by a webpage.
 
+### Technologies implemented
+
+- FastAPI
+- React
+
 ### Process
 
 The process consist in:
